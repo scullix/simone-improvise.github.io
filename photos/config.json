@@ -15,20 +15,19 @@
       ]
     },
     {
-      "id": "soiree-2026-03-15",
-      "titre": "Soirée du 15 Mars 2026",
-      "description": "Match d'impro mémorable",
-      "date": "2026-03-15",
-      "thumbnail": "photos/soiree-2026-03-15/thumbnail.jpg",
-      "dossier": "photos/soiree-2026-03-15/"
-    },
-    {
-      "id": "soiree-2026-02-20",
-      "titre": "Soirée du 20 Février 2026",
-      "description": "Spectacle hivernal",
-      "date": "2026-02-20",
-      "thumbnail": "photos/soiree-2026-02-20/thumbnail.jpg",
-      "dossier": "photos/soiree-2026-02-20/"
+      "id": "spectacles-en-vrac",
+      "titre": "Retour sur des spectacles Simone !",
+      "description": "Spectacles Simone mémorables",
+      "date": "2025-03-15",
+      "thumbnail": "photos/spectacles-en-vrac/thumbnail.jpg",
+      "dossier": "photos/spectacles-en-vrac/",
+      "photos" : [
+        "photos/spectacles-en-vrac/photo01.jpg",
+        "photos/spectacles-en-vrac/photo02.jpg",
+        "photos/spectacles-en-vrac/photo03.jpg",
+        "photos/spectacles-en-vrac/photo04.jpg",
+        "photos/spectacles-en-vrac/photo05.jpg"
+      ]
     }
   ]
 }
