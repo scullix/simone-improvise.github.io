@@ -143,7 +143,7 @@ nav {
 
 .hero {
     margin-top: 70px;
-    min-height: 80vh;
+    min-height: 50vh;
     background: linear-gradient(135deg, rgba(255, 180, 168, 0.7), rgba(137, 212, 240, 0.7)),
                 url('assets/images/IMG_20230524_120431_947.jpg') center/cover no-repeat;
     display: flex;
@@ -292,18 +292,22 @@ section:nth-child(even) {
 
 #activites {
     background: var(--pale-blue);
+    padding: 2rem 2rem; /* Ajoutez cette ligne si elle n'existe pas */
 }
 
 .activites-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: 1.5rem; /* Réduit de 2rem à 1.5rem */
+    margin-bottom: 1rem; /* Réduit de 3rem à 2rem */
+    max-width: 1000px; /* Limite la largeur totale */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .activite-box {
     background: white;
-    padding: 2rem;
+    padding: 1rem; /* Réduit de 2rem à 1.5rem */
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -315,36 +319,37 @@ section:nth-child(even) {
 }
 
 .activite-number {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Réduit de 3rem à 2.5rem */
     font-weight: 700;
     color: var(--coral-pastel);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem; /* Réduit de 1rem à 0.8rem */
 }
 
 .activite-title {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Réduit de 1.2rem à 1.1rem */
     font-weight: 600;
     color: var(--dark-text);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem; /* Réduit de 0.5rem à 0.4rem */
 }
 
 .activite-text {
-    font-size: 0.95rem;
+    font-size: 0.9rem; /* Réduit de 0.95rem à 0.9rem */
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.5; /* Réduit de 1.6 à 1.5 */
 }
 
 .impro-highlight {
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem; /* Réduit de 2rem à 1.5rem */
     background: white;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-top: 2rem; /* Ajoutez cette ligne */
 }
 
 .impro-highlight h3 {
     color: var(--sky-blue);
-    font-size: 2rem;
+    font-size: 1.6rem; /* Réduit de 2rem à 1.6rem */
     font-weight: 700;
 }
 
