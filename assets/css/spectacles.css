@@ -383,3 +383,20 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-spectacle {
+    margin-top: 70px;
+    min-height: 0vh; /* Réduit de 80vh à 50vh */
+    background: linear-gradient(135deg, rgba(255, 180, 168, 0.7), rgba(137, 212, 240, 0.7));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding: 3rem 1.5rem; /* Réduit de 4rem 2rem */
+}
