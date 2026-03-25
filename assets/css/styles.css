@@ -56,7 +56,7 @@ body {
    ======================================== */
 
 header {
-    # linear-gradient(90deg, #FFB4A8 0%, #FDD679 35%, #89D4F0 70%, #7DDCC8 100%);
+    /* linear-gradient(90deg, #FFB4A8 0%, #FDD679 35%, #89D4F0 70%, #7DDCC8 100%); */
     background: linear-gradient(90deg, 
         #FFFFFF 0%, 
         #FFFFFF 5%,          /* Plus de blanc */
@@ -749,3 +749,138 @@ footer {
     }
 }
 
+/* ========================================
+   SECTION ATELIERS HORAIRES - VERSION COMPACTE
+   ======================================== */
+
+.workshops-schedule {
+    padding: 3rem 5%; /* Réduit de 5rem à 3rem */
+    background: var(--pale-blue);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.workshops-schedule .section-intro {
+    text-align: center;
+    font-size: 1rem; /* Réduit de 1.1rem à 1rem */
+    margin-bottom: 2rem; /* Réduit de 3rem à 2rem */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color);
+    line-height: 1.6; /* Réduit de 1.8 à 1.6 */
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduit de 300px à 280px */
+    gap: 1.5rem; /* Réduit de 2.5rem à 1.5rem */
+    margin-bottom: 2rem; /* Réduit de 3rem à 2rem */
+}
+
+.workshop-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem; /* Réduit de 2rem à 1.5rem */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.workshop-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.workshop-icon {
+    font-size: 2.5rem; /* Réduit de 3rem à 2.5rem */
+    text-align: center;
+    margin-bottom: 1rem; /* Réduit de 1.5rem à 1rem */
+}
+
+.workshop-card h3 {
+    font-size: 1.3rem; /* Réduit de 1.5rem à 1.3rem */
+    margin-bottom: 1rem; /* Réduit de 1.5rem à 1rem */
+    text-align: center;
+    color: var(--coral-pastel);
+    font-weight: 600;
+}
+
+.workshop-details {
+    margin-bottom: 1rem; /* Réduit de 1.5rem à 1rem */
+    padding-bottom: 0.8rem; /* Réduit de 1rem à 0.8rem */
+    border-bottom: 2px solid var(--pale-blue);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; /* Réduit de 12px à 8px */
+    font-size: 0.95rem; /* Réduit de 1rem à 0.95rem */
+    color: var(--text-color);
+}
+
+.detail-item .icon {
+    font-size: 1.2rem; /* Réduit de 1.3rem à 1.2rem */
+    margin-right: 10px; /* Réduit de 12px à 10px */
+    width: 25px; /* Réduit de 30px à 25px */
+    flex-shrink: 0;
+}
+
+.detail-item .text {
+    font-weight: 500;
+    color: var(--dark-text);
+}
+
+.workshop-description {
+    font-size: 0.9rem; /* Réduit de 0.95rem à 0.9rem */
+    line-height: 1.5; /* Réduit de 1.6 à 1.5 */
+    color: var(--text-color);
+}
+
+.cta-container {
+    text-align: center;
+    margin-top: 1.5rem; /* Réduit de 2rem à 1.5rem */
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.8rem 2rem; /* Réduit de 1rem 2.5rem à 0.8rem 2rem */
+    background: white;
+    color: var(--coral-pastel);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: var(--pale-yellow);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .workshops-schedule {
+        padding: 2rem 1.5rem; /* Réduit de 3rem à 2rem */
+    }
+    
+    .workshop-card {
+        padding: 1.2rem; /* Réduit de 1.5rem à 1.2rem */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .workshop-icon {
+        font-size: 2rem; /* Réduit de 2.5rem à 2rem */
+    }
+    
+    .workshop-card h3 {
+        font-size: 1.2rem; /* Réduit de 1.3rem à 1.2rem */
+    }
+}
