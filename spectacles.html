@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simone Improvise - Compagnie d'improvisation théâtrale. Découvrez nos spectacles et rejoignez l'aventure !">
+    <meta name="keywords" content="improvisation, théâtre, spectacle, Simone Improvise, association">
+    <meta property="og:title" content="Simone Improvise - Improvisation Théâtrale">
+    <meta property="og:description" content="Compagnie d'improvisation théâtrale">
+    <meta property="og:type" content="website">
+    <title>Simone Improvise - Improvisation Théâtrale</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS externe -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/galerie.css">
+    <link rel="stylesheet" href="assets/css/spectacles.css">
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>  
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="assets/images/logoSimoneBlancnc-c-1-150x150.jpg" alt="Logo Simone Improvise" class="logo">
+                <span class="brand-name">Simone Improvise</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#activites">Activités</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+        </div>
+    </section>
+
+    <!-- Section Spectacles Dynamique -->
+    <section id="spectacles" class="section">
+        <div class="container">
+            <h2 class="section-title">Nos Spectacles</h2>
+            <p class="section-subtitle">Découvrez nos prochains événements et spectacles</p>
+            
+            <!-- Grille des spectacles (chargée dynamiquement) -->
+            <div id="spectacles-grid" class="spectacles-grid">
+                <!-- Les spectacles seront chargés ici par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo-container">
+                    <img src="assets/images/logoSimoneBlancnc-c-1-150x150.jpg" alt="Logo Simone Improvise" class="footer-logo">
+                    <span class="footer-brand">Simone Improvise</span>
+                </div>
+                <p style="margin-top: 1rem;">L'improvisation qui vous fait vibrer</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <p><a href="#accueil">Accueil</a></p>
+                <p><a href="#apropos">À propos</a></p>
+                <p><a href="#activites">Activités</a></p>
+                <p><a href="#galerie">Galerie</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/simoneimprovise/?locale=fr_FR" aria-label="Facebook">📘</a>
+                    <a href="https://www.instagram.com/simoneimprovise/?hl=fr" aria-label="Instagram">📷</a>
+                </div>
+                <p style="margin-top: 1rem;">Rejoignez notre communauté !</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Simone Improvise - Tous droits réservés</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Association d'improvisation théâtrale</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/galerie.js"></script>
+    <script src="assets/js/email.js"></script>
+    <script src="assets/js/spectacles.js"></script>
+</body>
+</html>
