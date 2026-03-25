@@ -91,7 +91,16 @@ class GestionSpectacles {
         } else if (filtre === 'passe') {
             spectaclesAffiches = this.spectacles.filter(s => s.statut === 'passe');
         }
-        
+
+      // MODIFICATION : Limiter à 3 spectacles si on est sur index.html
+        const isIndexPage = window.location.pathname.includes('index.html') || 
+                           window.location.pathname === '/' || 
+                           window.location.pathname.endsWith('/');
+        if (isIndexPage && filtre === 'tous') {
+            // Prendre seulement les 3 plus récents pour la page d'accueil
+            spectaclesAffiches = spectaclesAffiches.slice(0, 3);
+        }
+
         if (spectaclesAffiches.length === 0) {
             container.innerHTML = '<p class="no-spectacles-message">Aucun spectacle pour le moment. Revenez bientôt !</p>';
             return;
@@ -102,6 +111,11 @@ class GestionSpectacles {
             const card = this.creerCarteSpectacle(spectacle);
             container.appendChild(card);
         });
+
+        // MODIFICATION : Ajouter le bouton "Voir tous les spectacles" sur la page d'accueil
+        if (isIndexPage && filtre === 'tous' && this.spectacles.length > 3) {
+            this.ajouterBoutonTousSpectacles(container);
+        }
     }
 
     /**
