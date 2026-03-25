@@ -125,9 +125,9 @@ class GestionSpectacles {
         const btnContainer = document.createElement('div');
         btnContainer.className = 'tous-spectacles-link';
         btnContainer.innerHTML = `
-            <a href="spectacles.html" class="btn btn-spectacles">
-                Retrouver tous nos spectacles ici
-            </a>
+                <a href="spectacles.html" class="btn btn-spectacles">
+                    Retrouver tous nos spectacles ici
+                </a>
         `;
         container.appendChild(btnContainer);
     }
