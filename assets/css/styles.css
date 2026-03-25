@@ -51,6 +51,10 @@ body {
     background: var(--white);
 }
 
+.btn-container {
+    text-align: center;
+}
+
 /* ========================================
    HEADER & NAVIGATION
    ======================================== */
