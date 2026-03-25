@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Photos - Simone Improvise</title>
+    <link rel="stylesheet" href="css/galerie.css">
+</head>
+<body>
+    <header>
+        <h1>Galerie Photos</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="galerie.html" class="active">Galerie</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Grille des albums -->
+        <section id="albums-grid" class="albums-container">
+            <!-- Les albums seront chargés dynamiquement ici -->
+        </section>
+
+        <!-- Lightbox pour afficher les photos -->
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <div class="lightbox-content">
+                <button class="prev">&#10094;</button>
+                <img id="lightbox-image" src="" alt="">
+                <button class="next">&#10095;</button>
+            </div>
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-thumbnails"></div>
+        </div>
+    </main>
+
+    <script src="js/galerie.js"></script>
+</body>
+</html>

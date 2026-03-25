@@ -17,6 +17,7 @@
     
     <!-- CSS externe -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/galerie.css">
 </head>
 <body>
     <!-- HEADER -->
@@ -152,47 +153,28 @@
     </section>
 
     <!-- GALERIE -->
-    <section id="galerie">
-        <h2 class="section-title">Galerie Photos</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="assets/images/IMG_20241124-WA0177.jpg" alt="Photo spectacle 1">
-                <div class="gallery-overlay">
-                    <p>En pleine action !</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/images/IMG_20230524_120431_947.jpg" alt="Photo équipe">
-                <div class="gallery-overlay">
-                    <p>L'équipe Simone Improvise</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/images/IMG_20250405-WA0016-300x22.jpg" alt="Photo spectacle 2">
-                <div class="gallery-overlay">
-                    <p>Moments uniques</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/images/IMG_20241215-WA0001.jpg" alt="Photo spectacle 3">
-                <div class="gallery-overlay">
-                    <p>Émotion et rire</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/images/IMG_20251007_082858_229.jpg" alt="Photo événement">
-                <div class="gallery-overlay">
-                    <p>Nos événements</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/images/IMG_20230831-WA0001.jpg" alt="Photo backstage">
-                <div class="gallery-overlay">
-                    <p>Dans les coulisses</p>
-                </div>
+    <section id="galerie" class="section">
+        <div class="container">
+            <h2 class="section-title">Galerie Photos</h2>
+            <p class="section-subtitle">Revivez nos meilleurs moments en images</p>
+            
+            <!-- Grille des albums (chargés dynamiquement) -->
+            <div id="albums-grid" class="albums-grid">
+                <!-- Les albums seront chargés ici par JavaScript -->
             </div>
         </div>
     </section>
+    <!-- Lightbox pour affichage des photos -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <button class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#10094;</button>
+            <img id="lightbox-image" src="" alt="">
+            <button class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#10095;</button>
+        </div>
+        <div class="lightbox-caption"></div>
+        <div class="lightbox-thumbnails"></div>
+    </div>
 
     <!-- CONTACT -->
     <section id="contact">
@@ -260,5 +242,6 @@
 
     <!-- JAVASCRIPT -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/galerie.js"></script>
 </body>
 </html>
