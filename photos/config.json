@@ -1,6 +1,20 @@
 {
   "albums": [
     {
+      "id": "nos-entrainements",
+      "titre": "Nos entrainements",
+      "description": "Entrainements des équipes adultes et ado",
+      "date": "2026-03-15",
+      "thumbnail": "photos/nos-entrainements/thumbnail.jpg",
+      "dossier": "photos/nos-entrainements/",
+      "photos" : [
+        "photos/nos-entrainements/photo01.jpg",
+        "photos/nos-entrainements/photo02.jpg",
+        "photos/nos-entrainements/photo03.jpg",
+        "photos/nos-entrainements/photo04.jpg"
+      ]
+    },
+    {
       "id": "soiree-2026-03-15",
       "titre": "Soirée du 15 Mars 2026",
       "description": "Match d'impro mémorable",
