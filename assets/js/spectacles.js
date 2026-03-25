@@ -360,10 +360,11 @@ class GestionSpectacles {
 // INITIALISATION
 // ========================================
 
-let gestionSpectacles;
+// Déclarer gestionSpectacles au niveau global
+window.gestionSpectacles = null;
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('spectacles-grid')) {
-        gestionSpectacles = new GestionSpectacles();
-    }
+  if (document.getElementById('spectacles-grid')) {
+    window.gestionSpectacles = new GestionSpectacles();
+  }
 });

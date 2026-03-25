@@ -20,9 +20,6 @@
     <link rel="stylesheet" href="assets/css/galerie.css">
     <link rel="stylesheet" href="assets/css/spectacles.css">
 
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>  
-
     <!-- Font Awesome pour les icônes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -68,7 +65,18 @@
         </div>
     </section>
 
-
+    <!-- Lightbox pour affichage des photos -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <button class="lightbox-nav lightbox-prev" aria-label="Photo précédente">&#10094;</button>
+            <img id="lightbox-image" src="" alt="">
+            <button class="lightbox-nav lightbox-next" aria-label="Photo suivante">&#10095;</button>
+        </div>
+        <div class="lightbox-caption"></div>
+        <div class="lightbox-thumbnails"></div>
+    </div>
+    
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
