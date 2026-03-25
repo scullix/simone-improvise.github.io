@@ -13,6 +13,7 @@
       "photos": [
         "spectacles/20260328/affiche.jpg"
       ],
+      "lienPlusInfo": https://fb.me/e/5w4z7h3s6" 
       "lienReservation": "https://fb.me/e/5w4z7h3s6" 
     },
     {
@@ -44,3 +45,38 @@
         "assets/images/IMG_20230524_120431_947.jpg"
       ]
     }
+
+
+{
+  "spectacles": [
+    {
+      "id": "match-impro-avril-2026",
+      "type": "match",
+      "titre": "Match d'Improvisation - Printemps 2026",
+      "date": "2026-04-15",
+      "heure": "20h30",
+      "lieu": "Salle des Fêtes, Ville",
+      "description": "Grande soirée de match d'improvisation !",
+      "prix": "8€",
+      "statut": "a-venir",
+      "affiche": "spectacles/match-impro-avril-2026/affiche.jpg",
+      "photos": [],
+      "lienReservation": "https://billetterie.example.com/match-avril",
+      "lienPlusInfo": "https://facebook.com/event/123456"
+    },
+    {
+      "id": "atelier-decouverte",
+      "type": "atelier",
+      "titre": "Atelier Découverte de l'Impro",
+      "date": "2026-05-10",
+      "heure": "18h00",
+      "lieu": "Local de l'Association",
+      "description": "Venez découvrir l'improvisation théâtrale",
+      "prix": "Gratuit",
+      "statut": "a-venir",
+      "affiche": null,
+      "photos": [],
+      "lienPlusInfo": "https://example.com/ateliers"
+    }
+  ]
+}
