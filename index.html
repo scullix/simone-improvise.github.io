@@ -18,6 +18,7 @@
     <!-- CSS externe -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/galerie.css">
+    <link rel="stylesheet" href="assets/css/spectacles.css">
 
     <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>  
@@ -103,33 +104,15 @@
         </div>
     </section>
 
-    <!-- NOS ACTIVITES CARDS -->
-    <section id="nos-activites">
-        <h2 class="section-title">Nos Spectacles</h2>
-        <div class="activites-cards">
-            <div class="activite-card">
-                <img src="assets/images/IMG_20241124-WA0177.jpg" alt="Ateliers d'impro">
-                <div class="activite-info">
-                    <h3>Ateliers d'Impro</h3>
-                    <p>Participez à nos ateliers d'improvisation ! Que vous soyez débutant ou confirmé, venez découvrir 
-                    et pratiquer l'art de l'improvisation théâtrale dans une ambiance conviviale et créative.</p>
-                </div>
-            </div>
-            <div class="activite-card">
-                <img src="assets/images/IMG_20250405-WA0016-300x22.jpg" alt="Spectacles Live">
-                <div class="activite-info">
-                    <h3>Spectacles Live</h3>
-                    <p>Venez assister à nos spectacles d'improvisation ! Des histoires uniques créées en direct 
-                    à partir de vos suggestions. Chaque représentation est une expérience unique et mémorable.</p>
-                </div>
-            </div>
-            <div class="activite-card">
-                <img src="assets/images/IMG_20241215-WA0001.jpg" alt="Événements Spéciaux">
-                <div class="activite-info">
-                    <h3>Événements Spéciaux</h3>
-                    <p>Participez à nos matchs d'improvisation et événements spéciaux ! Une soirée spectaculaire où 
-                    deux équipes s'affrontent dans des joutes improvisées. Le public est juge !</p>
-                </div>
+    <!-- Section Spectacles Dynamique -->
+    <section id="spectacles" class="section">
+        <div class="container">
+            <h2 class="section-title">Nos Spectacles</h2>
+            <p class="section-subtitle">Découvrez nos prochains événements et spectacles</p>
+            
+            <!-- Grille des spectacles (chargée dynamiquement) -->
+            <div id="spectacles-grid" class="spectacles-grid">
+                <!-- Les spectacles seront chargés ici par JavaScript -->
             </div>
         </div>
     </section>
@@ -246,5 +229,6 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/galerie.js"></script>
     <script src="assets/js/email.js"></script>
+    <script src="assets/js/spectacles.js"></script>
 </body>
 </html>
