@@ -23,7 +23,7 @@ class GestionSpectacles {
             const response = await fetch('spectacles/config.json');
             const data = await response.json();
             this.spectacles = data.spectacles || [];
-
+            
             // Trier par date (les plus récents en premier)
             this.spectacles.sort((a, b) => new Date(b.date) - new Date(a.date));
         } catch (error) {
@@ -75,17 +75,15 @@ class GestionSpectacles {
 
     /**
      * Affiche la grille des spectacles
-     * Sur la page d'accueil : limite à 3 spectacles
-     * Sur la page spectacles.html : affiche tous
      */
     afficherSpectacles(filtre = 'tous') {
         const container = document.getElementById('spectacles-grid');
-
+        
         if (!container) {
             console.warn('Container spectacles-grid non trouvé');
             return;
         }
-
+        
         // Filtrer les spectacles
         let spectaclesAffiches = this.spectacles;
         if (filtre === 'a-venir') {
@@ -93,19 +91,9 @@ class GestionSpectacles {
         } else if (filtre === 'passe') {
             spectaclesAffiches = this.spectacles.filter(s => s.statut === 'passe');
         }
-
-        // MODIFICATION : Limiter à 3 spectacles si on est sur index.html
-        const isIndexPage = window.location.pathname.includes('index.html') || 
-                           window.location.pathname === '/' || 
-                           window.location.pathname.endsWith('/');
         
-        if (isIndexPage && filtre === 'tous') {
-            // Prendre seulement les 3 plus récents pour la page d'accueil
-            spectaclesAffiches = spectaclesAffiches.slice(0, 3);
-        }
-
         if (spectaclesAffiches.length === 0) {
-            container.innerHTML = '<p class="no-spectacles">Aucun spectacle pour le moment. Revenez bientôt !</p>';
+            container.innerHTML = '<p class="no-spectacles-message">Aucun spectacle pour le moment. Revenez bientôt !</p>';
             return;
         }
 
@@ -114,11 +102,6 @@ class GestionSpectacles {
             const card = this.creerCarteSpectacle(spectacle);
             container.appendChild(card);
         });
-
-        // MODIFICATION : Ajouter le bouton "Voir tous les spectacles" sur la page d'accueil
-        if (isIndexPage && filtre === 'tous' && this.spectacles.length > 3) {
-            this.ajouterBoutonTousSpectacles(container);
-        }
     }
 
     /**
@@ -141,7 +124,7 @@ class GestionSpectacles {
     creerCarteSpectacle(spectacle) {
         const card = document.createElement('div');
         card.className = 'spectacle-card';
-
+        
         // Icônes par type
         const icones = {
             'match': '🎭',
@@ -149,40 +132,59 @@ class GestionSpectacles {
             'spectacle': '🎬',
             'evenement': '🎉'
         };
-
+        
         const icone = icones[spectacle.type] || '🎭';
-
+        
         // Déterminer si l'affiche est cliquable
         const aAffiche = spectacle.affiche && spectacle.affiche.trim() !== '';
         const imageHtml = aAffiche ? `
-            <div class="spectacle-image">
-                <img src="${spectacle.affiche}" alt="${spectacle.titre}" class="spectacle-affiche">
-                <div class="spectacle-zoom">🔍 Cliquer pour agrandir</div>
+            <div class="spectacle-image-container">
+                <img src="${spectacle.affiche}" 
+                     alt="${spectacle.titre}" 
+                     class="spectacle-affiche"
+                     data-spectacle-id="${spectacle.id}">
+                <div class="spectacle-image-overlay">
+                    <span class="zoom-hint">🔍 Cliquer pour agrandir</span>
+                </div>
             </div>
         ` : `
-            <div class="spectacle-image spectacle-placeholder">
-                <div class="spectacle-icon">${icone}</div>
+            <div class="spectacle-image-container no-image">
+                <span class="spectacle-type-icon">${icone}</span>
             </div>
         `;
-
+        
         // Labels de statut
         const statutLabels = {
             'a-venir': 'À venir',
             'passe': 'Passé',
             'complet': 'Complet'
         };
-
+        
         card.innerHTML = `
             ${imageHtml}
-            <span class="spectacle-badge spectacle-badge-${spectacle.statut}">${statutLabels[spectacle.statut] || 'Info'}</span>
-            <div class="spectacle-content">
-                <span class="spectacle-type">${spectacle.type}</span>
-                <h3 class="spectacle-titre">${spectacle.titre}</h3>
-                <p class="spectacle-date">📅 ${this.formaterDate(spectacle.date)} à ${spectacle.heure}</p>
-                <p class="spectacle-lieu">📍 ${spectacle.lieu}</p>
+            <span class="spectacle-badge ${spectacle.statut}">${statutLabels[spectacle.statut] || 'Info'}</span>
+            
+            <div class="spectacle-info">
+                <span class="spectacle-type ${spectacle.type}">${spectacle.type}</span>
+                <h3>${spectacle.titre}</h3>
+                
+                <div class="spectacle-details">
+                    <div class="spectacle-detail-item">
+                        <span class="icon">📅</span>
+                        <span>${this.formaterDate(spectacle.date)} à ${spectacle.heure}</span>
+                    </div>
+                    <div class="spectacle-detail-item">
+                        <span class="icon">📍</span>
+                        <span>${spectacle.lieu}</span>
+                    </div>
+                </div>
+                
                 <p class="spectacle-description">${spectacle.description}</p>
-                <p class="spectacle-prix">${spectacle.prix}</p>
-                ${this.genererBoutonAction(spectacle)}
+                
+                <div class="spectacle-footer">
+                    <span class="spectacle-prix">${spectacle.prix}</span>
+                    ${this.genererBoutonAction(spectacle)}
+                </div>
             </div>
         `;
 
@@ -192,7 +194,7 @@ class GestionSpectacles {
             img.addEventListener('click', () => this.afficherAfficheEnGrand(spectacle));
             img.style.cursor = 'pointer';
         }
-
+        
         return card;
     }
 
@@ -202,24 +204,24 @@ class GestionSpectacles {
     genererBoutonAction(spectacle) {
         if (spectacle.statut === 'passe') {
             if (spectacle.photos && spectacle.photos.length > 0) {
-                return `<button class="spectacle-btn spectacle-btn-photos" onclick="gestionSpectacles.afficherPhotos('${spectacle.id}')">📷 Voir les photos</button>`;
+                return `<button class="spectacle-btn" onclick="gestionSpectacles.afficherPhotos('${spectacle.id}')">
+                    Voir les photos
+                </button>`;
             }
-            return '<span class="spectacle-termine">✓ Terminé</span>';
+            return '<button class="spectacle-btn disabled">Terminé</button>';
         }
-
+        
         if (spectacle.statut === 'complet') {
-            return '<span class="spectacle-complet">⚠️ Complet</span>';
+            return '<button class="spectacle-btn disabled">Complet</button>';
         }
-
-        if (spectacle.lienPlusInfo) {
-            return `<a href="${spectacle.lienPlusInfo}" target="_blank" class="spectacle-btn spectacle-btn-info">Plus d'infos</a>`;
-        }
-
+        
         if (spectacle.lienReservation) {
-            return `<a href="${spectacle.lienReservation}" target="_blank" class="spectacle-btn spectacle-btn-reserver">Réserver</a>`;
+            return `<a href="${spectacle.lienReservation}" class="spectacle-btn" target="_blank">
+                Réserver
+            </a>`;
         }
-
-        return '<span class="spectacle-info">Plus d\'infos bientôt</span>';
+        
+        return '<button class="spectacle-btn">Plus d\'infos</button>';
     }
 
     /**
@@ -227,26 +229,26 @@ class GestionSpectacles {
      */
     afficherAfficheEnGrand(spectacle) {
         if (!spectacle.affiche) return;
-
+        
         const lightbox = document.getElementById('lightbox');
         const img = document.getElementById('lightbox-image');
         const caption = document.querySelector('.lightbox-caption');
         const thumbnails = document.querySelector('.lightbox-thumbnails');
-
+        
         if (!lightbox || !img) {
             console.warn('Lightbox non trouvé');
             return;
         }
-
+        
         img.src = spectacle.affiche;
         img.alt = spectacle.titre;
         caption.textContent = spectacle.titre;
-
+        
         // Masquer les miniatures et la navigation pour une seule image
         thumbnails.style.display = 'none';
         document.querySelector('.lightbox-prev').style.display = 'none';
         document.querySelector('.lightbox-next').style.display = 'none';
-
+        
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -260,13 +262,13 @@ class GestionSpectacles {
             alert('Aucune photo disponible pour ce spectacle.');
             return;
         }
-
+        
         // Simuler un album pour réutiliser le système de galerie
         const album = {
             titre: spectacle.titre,
             photos: spectacle.photos
         };
-
+        
         // Si la classe GaleriePhotos existe, on l'utilise
         if (window.GaleriePhotos) {
             const galerie = new window.GaleriePhotos();
@@ -293,22 +295,22 @@ class GestionSpectacles {
     initialiserLightbox() {
         const closeBtn = document.querySelector('.lightbox-close');
         const lightbox = document.getElementById('lightbox');
-
+        
         if (!closeBtn || !lightbox) return;
-
+        
         // Le bouton de fermeture est déjà géré par galerie.js
         // On s'assure juste qu'il fonctionne
         closeBtn.addEventListener('click', () => {
             lightbox.classList.remove('active');
             document.body.style.overflow = 'auto';
-
+            
             // Réafficher les éléments masqués
             const thumbnails = document.querySelector('.lightbox-thumbnails');
             if (thumbnails) thumbnails.style.display = 'flex';
             document.querySelector('.lightbox-prev').style.display = 'block';
             document.querySelector('.lightbox-next').style.display = 'block';
         });
-
+        
         // Clic en dehors
         lightbox.addEventListener('click', (e) => {
             if (e.target.id === 'lightbox') {
@@ -322,11 +324,11 @@ class GestionSpectacles {
      */
     formaterDate(dateStr) {
         try {
-            const options = {
+            const options = { 
                 weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
             };
             const date = new Date(dateStr).toLocaleDateString('fr-FR', options);
             return date.charAt(0).toUpperCase() + date.slice(1);
