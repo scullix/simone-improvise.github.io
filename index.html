@@ -20,18 +20,16 @@
         }
 
         :root {
-            /* Couleurs douces de la palette aquarelle */
-            --coral-pink: #FFB4A8;
+            /* Palette simplifiée - sans rose */
+            --coral-pastel: #FFB4A8;
             --sunshine-yellow: #FDD679;
             --sky-blue: #89D4F0;
             --mint-green: #7DDCC8;
-            --soft-pink: #FFD4E5;
-            --pale-yellow: #FFF4CC;
             --pale-blue: #E8F6FC;
+            --pale-yellow: #FFF4CC;
             --white: #FFFFFF;
             --dark-text: #2C3E50;
             --text-color: #34495E;
-            --primary-accent: #FF8B7D;
         }
 
         body {
@@ -44,7 +42,7 @@
 
         /* HEADER & NAVIGATION */
         header {
-            background: linear-gradient(90deg, #FFB4A8 0%, #FDD679 25%, #89D4F0 50%, #7DDCC8 75%, #FFD4E5 100%);
+            background: linear-gradient(90deg, #FFB4A8 0%, #FDD679 35%, #89D4F0 70%, #7DDCC8 100%);
             position: fixed;
             width: 100%;
             top: 0;
@@ -155,7 +153,7 @@
             display: inline-block;
             padding: 1rem 2.5rem;
             background: white;
-            color: var(--primary-accent);
+            color: var(--coral-pastel);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
@@ -166,7 +164,7 @@
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-            background: var(--soft-pink);
+            background: var(--pale-yellow);
         }
 
         /* SECTIONS */
@@ -184,7 +182,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: var(--primary-accent);
+            color: var(--coral-pastel);
             position: relative;
             padding-bottom: 1rem;
             font-weight: 700;
@@ -198,7 +196,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(90deg, var(--coral-pink), var(--sky-blue));
+            background: linear-gradient(90deg, var(--coral-pastel), var(--sky-blue));
             border-radius: 2px;
         }
 
@@ -220,7 +218,7 @@
         }
 
         .about-text strong {
-            color: var(--primary-accent);
+            color: var(--coral-pastel);
             font-size: 1.3rem;
         }
 
@@ -263,7 +261,7 @@
         .activite-number {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--primary-accent);
+            color: var(--coral-pastel);
             margin-bottom: 1rem;
         }
 
@@ -329,7 +327,7 @@
         }
 
         .activite-info h3 {
-            color: var(--primary-accent);
+            color: var(--coral-pastel);
             margin-bottom: 0.5rem;
             font-size: 1.3rem;
         }
@@ -363,7 +361,7 @@
         }
 
         .valeurs-text h3 {
-            color: var(--primary-accent);
+            color: var(--coral-pastel);
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
@@ -448,7 +446,7 @@
 
         /* CONTACT SECTION */
         #contact {
-            background: var(--soft-pink);
+            background: var(--pale-yellow);
         }
 
         .contact-container {
@@ -489,7 +487,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-accent);
+            border-color: var(--coral-pastel);
         }
 
         .form-group textarea {
@@ -499,7 +497,7 @@
 
         /* FOOTER */
         footer {
-            background: linear-gradient(90deg, #FFB4A8 0%, #FDD679 25%, #89D4F0 50%, #7DDCC8 75%, #FFD4E5 100%);
+            background: linear-gradient(90deg, #FFB4A8 0%, #FDD679 35%, #89D4F0 70%, #7DDCC8 100%);
             color: var(--dark-text);
             text-align: center;
             padding: 3rem 5%;
