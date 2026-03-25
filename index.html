@@ -1,260 +1,697 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simone Improvise — Accueil</title>
-  <meta name="description" content="Simone Improvise — association d'improvisation théâtrale. Ateliers, spectacles et événements." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="S'mone - Compagnie d'improvisation théâtrale. Découvrez nos spectacles et rejoignez l'aventure !">
+    <meta name="keywords" content="improvisation, théâtre, spectacle, S'mone, association">
+    <meta property="og:title" content="S'mone - Improvisation Théâtrale">
+    <meta property="og:description" content="Compagnie d'improvisation théâtrale">
+    <meta property="og:type" content="website">
+    <title>S'mone - Improvisation Théâtrale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Polices Google -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Prata&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+        :root {
+            --primary-color: #FF6B9D;
+            --secondary-color: #4ECDC4;
+            --dark-color: #2C3E50;
+            --light-color: #ECF0F1;
+            --text-color: #34495E;
+        }
 
-  <!-- Feuille de style -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.9), rgba(78, 205, 196, 0.9)),
+                        url('assets/images/IMG_20230524_120431_947.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        /* ABOUT SECTION */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.8), rgba(78, 205, 196, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay p {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* SPECTACLES SECTION */
+        .spectacles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .spectacle-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .spectacle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .spectacle-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .spectacle-info {
+            padding: 1.5rem;
+        }
+
+        .spectacle-info h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .spectacle-info p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* CONTACT SECTION */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-logo {
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--dark-color);
+                width: 100%;
+                padding: 2rem;
+                transition: right 0.3s ease;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .burger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .burger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .burger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .spectacles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                padding: 2rem 1.5rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <img src="assets/images/LogoSimone-1-150x151.png" alt="Logo S'mone" class="logo">
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#spectacles">Spectacles</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
 
-  <!-- ── Overlay menu mobile ── -->
-  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Menu">
-    <button class="close-nav" aria-label="Fermer le menu">×</button>
-    <a href="index.html">Accueil</a>
-    <a href="a-propos.html">À Propos</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-  </div>
-
-  <!-- ════════════════════════════════════
-       HEADER
-  ════════════════════════════════════ -->
-  <header id="accueil">
-    <div class="header-inner">
-
-      <a href="index.html" class="logo" aria-label="Simone Improvise — Accueil">
-        <img
-          src="assets/img/logo-blanc.jpg"
-          alt="Simone Improvise"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-        />
-        <span class="logo-fallback">Simone Improvise</span>
-      </a>
-
-      <nav aria-label="Navigation principale">
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="a-propos.html">À Propos</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-
-      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navOverlay">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-    </div>
-  </header>
-
-
-  <main>
-
-    <!-- ════════════════════════════════════
-         HERO
-    ════════════════════════════════════ -->
-    <section class="hero" aria-label="Bannière principale">
-      <img class="hero-bg" src="assets/img/hero-bg.png" alt="" aria-hidden="true" />
-      <img class="hero-logo" src="assets/img/logo-hero.jpg" alt="Simone Improvise" />
-    </section>
-
-
-    <!-- ════════════════════════════════════
-         BANDEAU — 3 PILIERS
-    ════════════════════════════════════ -->
-    <section class="bandeau" aria-label="Nos engagements">
-      <div class="bandeau-inner">
-
-        <div class="pillars">
-          <div class="pillar">
-            <div class="pillar-num">1.</div>
-            <p>Un espace sans jugement pour s'exprimer librement.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-num">2.</div>
-            <p>Des spectacles qui divertissent et rassemblent tous.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-num">3.</div>
-            <p>Développez créativité et confiance en vous.</p>
-          </div>
+    <!-- HERO SECTION -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>S'MONE</h1>
+            <p>L'improvisation théâtrale qui vous emmène ailleurs</p>
+            <a href="#spectacles" class="btn">Découvrir nos spectacles</a>
         </div>
-
-        <p class="bandeau-cta">IMPRO !!</p>
-
-      </div>
     </section>
 
-
-    <!-- ════════════════════════════════════
-         NOS ACTIVITÉS
-    ════════════════════════════════════ -->
-    <section class="section-activites" aria-labelledby="titre-activites">
-      <h2 class="section-title" id="titre-activites">Nos Activités</h2>
-
-      <div class="cards">
-
-        <article class="card">
-          <img src="assets/img/atelier-impro.jpg" alt="Ateliers d'Impro" loading="lazy" />
-          <h5>Ateliers d'Impro</h5>
-          <p>Participez à nos ateliers d'impro pour explorer votre créativité et vous amuser dans un cadre bienveillant!</p>
-        </article>
-
-        <article class="card">
-          <img src="assets/img/spectacles-live.jpg" alt="Spectacles Live" loading="lazy" />
-          <h5>Spectacles Live</h5>
-          <p>Venez assister à nos spectacles improvisés, où rires et surprises sont toujours au rendez-vous!</p>
-        </article>
-
-        <article class="card">
-          <img src="assets/img/evenements-speciaux.jpg" alt="Événements Spéciaux" loading="lazy" />
-          <h5>Événements Spéciaux</h5>
-          <p>Participez à nos événements spéciaux pour vivre l'improvisation dans une ambiance festive et unique!</p>
-        </article>
-
-      </div>
-    </section>
-
-
-    <!-- ════════════════════════════════════
-         NOS VALEURS
-    ════════════════════════════════════ -->
-    <section class="section-valeurs" aria-labelledby="titre-valeurs">
-      <div class="valeurs-inner">
-
-        <div class="valeurs-img">
-          <img src="assets/img/valeurs.jpg" alt="Simone Improvise en action" loading="lazy" />
+    <!-- À PROPOS -->
+    <section id="apropos">
+        <h2 class="section-title">Qui sommes-nous ?</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    <strong>S'mone</strong> est une compagnie d'improvisation théâtrale passionnée et créative.
+                    Nous créons des spectacles uniques et spontanés qui transportent le public dans des univers
+                    inattendus et hilarants.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Nos comédiens, formés aux techniques d'improvisation, vous proposent des moments de partage,
+                    de rire et d'émotion. Chaque représentation est unique car entièrement créée sur le moment,
+                    avec votre participation !
+                </p>
+            </div>
+            <img src="assets/images/IMG_20230524_120431_947.jpg" alt="Équipe S'mone" class="about-image">
         </div>
-
-        <div class="valeurs-texte">
-          <h3 id="titre-valeurs">Nos Valeurs Essentielles</h3>
-          <p>
-            Chez Simone Improvise, nous croyons en la joie, la bonne humeur et la bienveillance.
-            Notre association est un espace où chacun peut s'exprimer sans jugement.
-            Nous encourageons la créativité et l'esprit d'équipe, tout en s'amusant ensemble.
-            Rejoignez-nous pour partager des moments uniques et enrichissants dans l'univers de l'improvisation!
-          </p>
-          <a href="services.html" class="btn">Explorez Maintenant!</a>
-        </div>
-
-      </div>
     </section>
 
-
-    <!-- ════════════════════════════════════
-         TÉMOIGNAGES
-    ════════════════════════════════════ -->
-    <section class="section-temoignages" aria-labelledby="titre-temoignages">
-      <div class="temoignages-inner">
-        <h2 id="titre-temoignages">Témoignages</h2>
-
-        <div class="temoignages-grid">
-
-          <div class="temoignage">
-            <blockquote>Simone Improvise a changé ma vie! J'ai gagné confiance et j'adore chaque séance d'impro. Une expérience inoubliable!</blockquote>
-            <cite>Sophie Jexagere</cite>
-          </div>
-
-          <div class="temoignage">
-            <blockquote>Les ateliers sont tellement amusants! J'ai rencontré des amis formidables et j'ai découvert ma passion pour l'impro!</blockquote>
-            <cite>Marc Heureux</cite>
-          </div>
-
-          <div class="temoignage">
-            <blockquote>Participer aux spectacles est un vrai bonheur! Chaque performance est pleine de surprises et de rires. Un vrai moment de magie!</blockquote>
-            <cite>Jean-Michel Bonpublique</cite>
-          </div>
-
+    <!-- SPECTACLES -->
+    <section id="spectacles">
+        <h2 class="section-title">Nos Spectacles</h2>
+        <div class="spectacles-grid">
+            <div class="spectacle-card">
+                <img src="assets/images/IMG_20241124-WA0177.jpg" alt="Spectacle improvisation">
+                <div class="spectacle-info">
+                    <h3>Match d'improvisation</h3>
+                    <p>Deux équipes s'affrontent dans un match sportif où l'imagination est reine. Le public est juge !</p>
+                </div>
+            </div>
+            <div class="spectacle-card">
+                <img src="assets/images/IMG_20250405-WA0016-300x22.jpg" alt="Spectacle théâtre">
+                <div class="spectacle-info">
+                    <h3>Format libre</h3>
+                    <p>Des histoires créées spontanément à partir de vos suggestions. Laissez-vous surprendre !</p>
+                </div>
+            </div>
+            <div class="spectacle-card">
+                <img src="assets/images/IMG_20241215-WA0001.jpg" alt="Atelier improvisation">
+                <div class="spectacle-info">
+                    <h3>Ateliers découverte</h3>
+                    <p>Envie d'essayer ? Rejoignez nos ateliers pour découvrir l'improvisation dans une ambiance conviviale.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-
-    <!-- ════════════════════════════════════
-         CONTACT
-    ════════════════════════════════════ -->
-    <section class="section-contact" aria-labelledby="titre-contact">
-      <img class="contact-bg" src="assets/img/contact-bg.png" alt="" aria-hidden="true" />
-
-      <div class="contact-inner">
-        <h2 id="titre-contact"><a href="contact.html">Contactez-Nous</a></h2>
-        <p>Des questions? Prêts à rejoindre l'aventure? Contactez-nous et faisons ensemble de belles improvisations!</p>
-
-        <div class="social-links">
-
-          <a
-            href="https://www.instagram.com/simoneimprovise/?hl=fr"
-            class="social-link instagram"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram de Simone Improvise"
-          >
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-              <path d="M12,4.622c2.403,0,2.688.009,3.637.052.877.04,1.354.187,1.671.31.42.163.72.358,1.035.673.315.315.51.615.673,1.035.123.317.27.794.31,1.671C19.369,9.312,19.378,9.597,19.378,12s-.009,2.688-.052,3.637c-.04.877-.187,1.354-.31,1.671-.163.42-.358.72-.673,1.035-.315.315-.615.51-1.035.673-.317.123-.794.27-1.671.31-.949.043-1.233.052-3.637.052s-2.688-.009-3.637-.052c-.877-.04-1.354-.187-1.671-.31-.42-.163-.72-.358-1.035-.673-.315-.315-.51-.615-.673-1.035-.123-.317-.27-.794-.31-1.671C4.631,14.688,4.622,14.403,4.622,12s.009-2.688.052-3.637c.04-.877.187-1.354.31-1.671.163-.42.358-.72.673-1.035.315-.315.615-.51,1.035-.673.317-.123.794-.27,1.671-.31C9.312,4.631,9.597,4.622,12,4.622M12,3C9.556,3,9.249,3.01,8.289,3.054,7.331,3.098,6.677,3.25,6.105,3.472,5.513,3.702,5.011,4.01,4.511,4.511c-.5.5-.808,1.002-1.038,1.594C3.25,6.677,3.098,7.331,3.054,8.289,3.01,9.249,3,9.556,3,12c0,2.444.01,2.751.054,3.711.044.958.196,1.612.418,2.185.23.592.538,1.094,1.038,1.594.5.5,1.002.808,1.594,1.038.572.222,1.227.375,2.185.418C9.249,20.99,9.556,21,12,21s2.751-.01,3.711-.054c.958-.044,1.612-.196,2.185-.418.592-.23,1.094-.538,1.594-1.038.5-.5.808-1.002,1.038-1.594.222-.572.375-1.227.418-2.185C20.99,14.751,21,14.444,21,12s-.01-2.751-.054-3.711c-.044-.958-.196-1.612-.418-2.185-.23-.592-.538-1.094-1.038-1.594-.5-.5-1.002-.808-1.594-1.038-.572-.222-1.227-.375-2.185-.418C14.751,3.01,14.444,3,12,3Zm0,4.378c-2.552,0-4.622,2.069-4.622,4.622S9.448,16.622,12,16.622s4.622-2.069,4.622-4.622S14.552,7.378,12,7.378zM12,15c-1.657,0-3-1.343-3-3s1.343-3,3-3,3,1.343,3,3S13.657,15,12,15zm4.804-8.884c-.596,0-1.08.484-1.08,1.08s.484,1.08,1.08,1.08,1.08-.484,1.08-1.08-.484-1.08-1.08-1.08z"/>
-            </svg>
-          </a>
-
-          <a
-            href="https://www.facebook.com/simoneimprovise/?locale=fr_FR"
-            class="social-link facebook"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook de Simone Improvise"
-          >
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-              <path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"/>
-            </svg>
-          </a>
-
+    <!-- GALERIE -->
+    <section id="galerie">
+        <h2 class="section-title">Galerie Photos</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="assets/images/IMG_20241124-WA0177.jpg" alt="Photo spectacle 1">
+                <div class="gallery-overlay">
+                    <p>En pleine action !</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/IMG_20230524_120431_947.jpg" alt="Photo équipe">
+                <div class="gallery-overlay">
+                    <p>L'équipe S'mone</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/IMG_20250405-WA0016-300x22.jpg" alt="Photo spectacle 2">
+                <div class="gallery-overlay">
+                    <p>Moments uniques</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/IMG_20241215-WA0001.jpg" alt="Photo spectacle 3">
+                <div class="gallery-overlay">
+                    <p>Émotion et rire</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/IMG_20251007_082858_229.jpg" alt="Photo événement">
+                <div class="gallery-overlay">
+                    <p>Nos événements</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/IMG_20230831-WA0001.jpg" alt="Photo backstage">
+                <div class="gallery-overlay">
+                    <p>Dans les coulisses</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-  </main>
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="section-title">Contactez-nous</h2>
+        <div class="contact-container">
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Nom *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+        </div>
+    </section>
 
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="assets/images/LogoSimone-1-150x151.png" alt="Logo S'mone" class="footer-logo">
+                <p>L'improvisation qui vous fait vibrer</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <p><a href="#accueil" style="color: white; text-decoration: none;">Accueil</a></p>
+                <p><a href="#apropos" style="color: white; text-decoration: none;">À propos</a></p>
+                <p><a href="#spectacles" style="color: white; text-decoration: none;">Spectacles</a></p>
+                <p><a href="#contact" style="color: white; text-decoration: none;">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">📹</a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2026 S'mone - Tous droits réservés</p>
+    </footer>
 
-  <!-- ════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
+    <!-- JAVASCRIPT -->
+    <script>
+        // Menu burger responsive
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
 
-      <div class="footer-logo">
-        <img
-          src="assets/img/logo-footer.jpg"
-          alt="Simone Improvise"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-        />
-        <span class="footer-logo-fallback">Simone Improvise</span>
-      </div>
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('active');
+        });
 
-      <div class="footer-contact">
-        <span>|</span>
-        <a href="mailto:simoneimprovise@gmail.com">simoneimprovise@gmail.com</a>
-        <span>|</span>
-        <span>Adresse du bureau Simone</span>
-      </div>
+        // Fermer le menu au clic sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
 
-      <p class="footer-copy">© 2025</p>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
-    </div>
-  </footer>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
 
-  <!-- Script -->
-  <script src="assets/js/main.js"></script>
-
+        document.querySelectorAll('.gallery-item, .spectacle-card').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
 </body>
 </html>
