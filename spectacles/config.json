@@ -1,21 +1,21 @@
 {
   "spectacles": [
     {
-      "id": "match-impro-avril-2026",
-      "type": "match",
-      "titre": "Match d'Improvisation - Printemps 2026",
-      "date": "2026-04-15",
-      "heure": "20h30",
-      "lieu": "Salle des Fêtes, Ville",
-      "description": "Grande soirée de match d'improvisation ! Deux équipes s'affrontent dans des joutes improvisées hilarantes. Le public est juge !",
-      "prix": "8€",
+      "id": "spectacle-impro-20260328",
+      "type": "spectacle",
+      "titre": "Spectacle d'Improvisation - Printemps 2026",
+      "date": "2026-03-28",
+      "heure": "20h",
+      "lieu": "Divanoo 25A route de Bischwiller à Bischheim",
+      "description": "Pour le prochain spectacle d'improvisation de la team adultes de Simone, on te réserve des impros plus vraies que nature et une qualité 4K que tu ne trouveras nulle part ailleurs ! 🎬",
+      "prix": "Entrée libre dans la limite des places disponibles ",
       "statut": "a-venir",
-      "affiche": "spectacles/match-impro-avril-2026/affiche.jpg",
+      "affiche": "spectacles/20260328/affiche.jpg",
       "photos": [
-        "spectacles/match-impro-avril-2026/affiche.jpg",
-        "spectacles/match-impro-avril-2026/photo1.jpg"
+        "spectacles/20260328/affiche.jpg",
+        "spectacles/20260328/photo1.jpg"
       ],
-      "lienReservation": "https://example.com/reservation"
+      "lienReservation": "https://fb.me/e/5w4z7h3s6"
     },
     {
       "id": "atelier-decouverte",
