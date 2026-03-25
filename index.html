@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="S'mone - Compagnie d'improvisation théâtrale. Découvrez nos spectacles et rejoignez l'aventure !">
-    <meta name="keywords" content="improvisation, théâtre, spectacle, S'mone, association">
-    <meta property="og:title" content="S'mone - Improvisation Théâtrale">
+    <meta name="description" content="Simone Improvise - Compagnie d'improvisation théâtrale. Découvrez nos spectacles et rejoignez l'aventure !">
+    <meta name="keywords" content="improvisation, théâtre, spectacle, Simone Improvise, association">
+    <meta property="og:title" content="Simone Improvise - Improvisation Théâtrale">
     <meta property="og:description" content="Compagnie d'improvisation théâtrale">
     <meta property="og:type" content="website">
-    <title>S'mone - Improvisation Théâtrale</title>
+    <title>Simone Improvise - Improvisation Théâtrale</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -20,10 +20,16 @@
         }
 
         :root {
-            --primary-color: #FF6B9D;
-            --secondary-color: #4ECDC4;
-            --dark-color: #2C3E50;
-            --light-color: #ECF0F1;
+            /* Couleurs exactes de la palette */
+            --coral-pink: #FF8B7D;
+            --sky-blue: #89CFF0;
+            --sunshine-yellow: #FFD97D;
+            --mint-green: #7DDCC8;
+            --soft-pink: #FFD4E5;
+            --pale-yellow: #FFF4CC;
+            --pale-blue: #E8F6FC;
+            --white: #FFFFFF;
+            --dark-text: #2C3E50;
             --text-color: #34495E;
         }
 
@@ -32,11 +38,12 @@
             line-height: 1.6;
             color: var(--text-color);
             overflow-x: hidden;
+            background: var(--white);
         }
 
         /* HEADER & NAVIGATION */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(90deg, #E91E8C 0%, #B565D8 50%, #5BC0EB 100%);
             position: fixed;
             width: 100%;
             top: 0;
@@ -53,14 +60,25 @@
             margin: 0 auto;
         }
 
-        .logo {
-            height: 60px;
-            width: auto;
-            transition: transform 0.3s ease;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .logo:hover {
-            transform: scale(1.05);
+        .logo {
+            height: 50px;
+            width: auto;
+            background: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .brand-name {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
 
         .nav-links {
@@ -80,7 +98,6 @@
 
         .nav-links a:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
         }
 
         .burger {
@@ -100,9 +117,9 @@
 
         /* HERO SECTION */
         .hero {
-            margin-top: 80px;
-            height: 90vh;
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.9), rgba(78, 205, 196, 0.9)),
+            margin-top: 70px;
+            min-height: 80vh;
+            background: linear-gradient(135deg, rgba(255, 139, 125, 0.7), rgba(137, 207, 240, 0.7)),
                         url('assets/images/IMG_20230524_120431_947.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -110,29 +127,34 @@
             text-align: center;
             color: white;
             position: relative;
+            padding: 4rem 2rem;
         }
 
         .hero-content {
             z-index: 2;
+            max-width: 800px;
             animation: fadeInUp 1s ease;
         }
 
         .hero h1 {
             font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            letter-spacing: 2px;
+            font-weight: 700;
         }
 
         .hero p {
             font-size: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
 
         .btn {
             display: inline-block;
             padding: 1rem 2.5rem;
             background: white;
-            color: var(--primary-color);
+            color: #E91E8C;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
@@ -143,6 +165,7 @@
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: var(--soft-pink);
         }
 
         /* SECTIONS */
@@ -152,13 +175,18 @@
             margin: 0 auto;
         }
 
+        section:nth-child(even) {
+            background: var(--pale-blue);
+        }
+
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: var(--dark-color);
+            color: #E91E8C;
             position: relative;
             padding-bottom: 1rem;
+            font-weight: 700;
         }
 
         .section-title::after {
@@ -169,11 +197,15 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(90deg, var(--coral-pink), var(--sky-blue));
             border-radius: 2px;
         }
 
         /* ABOUT SECTION */
+        #apropos {
+            background: white;
+        }
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -184,6 +216,11 @@
         .about-text {
             font-size: 1.1rem;
             line-height: 1.8;
+        }
+
+        .about-text strong {
+            color: #E91E8C;
+            font-size: 1.3rem;
         }
 
         .about-image {
@@ -197,7 +234,161 @@
             transform: scale(1.02);
         }
 
-        /* GALLERY */
+        /* ACTIVITES SECTION */
+        #activites {
+            background: var(--pale-blue);
+        }
+
+        .activites-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .activite-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .activite-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .activite-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #E91E8C;
+            margin-bottom: 1rem;
+        }
+
+        .activite-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .activite-text {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .impro-highlight {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .impro-highlight h3 {
+            color: var(--sky-blue);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        /* NOS ACTIVITES CARDS */
+        #nos-activites {
+            background: white;
+        }
+
+        .activites-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .activite-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .activite-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .activite-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .activite-info {
+            padding: 1.5rem;
+        }
+
+        .activite-info h3 {
+            color: #E91E8C;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .activite-info p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* VALEURS SECTION */
+        #valeurs {
+            background: var(--pale-blue);
+        }
+
+        .valeurs-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .valeurs-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .valeurs-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .valeurs-text h3 {
+            color: #E91E8C;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-valeurs {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--sky-blue);
+            color: var(--sky-blue);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-valeurs:hover {
+            background: var(--sky-blue);
+            color: white;
+        }
+
+        /* GALERIE */
+        #galerie {
+            background: white;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -235,7 +426,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.8), rgba(78, 205, 196, 0.8));
+            background: linear-gradient(135deg, rgba(255, 139, 125, 0.85), rgba(137, 207, 240, 0.85));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -251,49 +442,14 @@
             color: white;
             font-size: 1.2rem;
             font-weight: 600;
-        }
-
-        /* SPECTACLES SECTION */
-        .spectacles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .spectacle-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .spectacle-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .spectacle-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .spectacle-info {
-            padding: 1.5rem;
-        }
-
-        .spectacle-info h3 {
-            color: var(--dark-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .spectacle-info p {
-            color: var(--text-color);
-            line-height: 1.6;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         /* CONTACT SECTION */
+        #contact {
+            background: var(--soft-pink);
+        }
+
         .contact-container {
             max-width: 800px;
             margin: 0 auto;
@@ -317,7 +473,7 @@
         .form-group label {
             margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--dark-color);
+            color: var(--dark-text);
         }
 
         .form-group input,
@@ -332,7 +488,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-color: #E91E8C;
         }
 
         .form-group textarea {
@@ -342,7 +498,7 @@
 
         /* FOOTER */
         footer {
-            background: var(--dark-color);
+            background: linear-gradient(90deg, #E91E8C 0%, #B565D8 50%, #5BC0EB 100%);
             color: white;
             text-align: center;
             padding: 3rem 5%;
@@ -359,12 +515,37 @@
 
         .footer-section h3 {
             margin-bottom: 1rem;
-            color: var(--secondary-color);
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .footer-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
 
         .footer-logo {
             height: 80px;
-            margin-bottom: 1rem;
+            background: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 0.8;
         }
 
         .social-links {
@@ -377,11 +558,17 @@
         .social-links a {
             color: white;
             font-size: 1.5rem;
-            transition: color 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .social-links a:hover {
-            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.3);
         }
 
         /* ANIMATIONS */
@@ -397,13 +584,27 @@
         }
 
         /* RESPONSIVE */
+        @media screen and (max-width: 968px) {
+            .activites-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .valeurs-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .nav-links {
                 position: fixed;
                 right: -100%;
-                top: 80px;
+                top: 70px;
                 flex-direction: column;
-                background: var(--dark-color);
+                background: linear-gradient(135deg, #E91E8C, #5BC0EB);
                 width: 100%;
                 padding: 2rem;
                 transition: right 0.3s ease;
@@ -430,6 +631,10 @@
                 transform: rotate(45deg) translate(-5px, -6px);
             }
 
+            .brand-name {
+                font-size: 1.2rem;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -438,15 +643,11 @@
                 font-size: 1.2rem;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
 
-            .spectacles-grid {
+            .activites-cards {
                 grid-template-columns: 1fr;
             }
 
@@ -467,6 +668,14 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .logo {
+                height: 40px;
+            }
+
+            .brand-name {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -474,11 +683,14 @@
     <!-- HEADER -->
     <header>
         <nav>
-            <img src="assets/images/LogoSimone-1-150x151.png" alt="Logo S'mone" class="logo">
+            <div class="logo-container">
+                <img src="assets/images/logoSimoneBlancnc-c-1-150x150.jpg" alt="Logo Simone Improvise" class="logo">
+                <span class="brand-name">Simone Improvise</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apropos">À propos</a></li>
-                <li><a href="#spectacles">Spectacles</a></li>
+                <li><a href="#activites">Activités</a></li>
                 <li><a href="#galerie">Galerie</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -493,9 +705,9 @@
     <!-- HERO SECTION -->
     <section id="accueil" class="hero">
         <div class="hero-content">
-            <h1>S'MONE</h1>
+            <h1>Simone Improvise</h1>
             <p>L'improvisation théâtrale qui vous emmène ailleurs</p>
-            <a href="#spectacles" class="btn">Découvrir nos spectacles</a>
+            <a href="#activites" class="btn">Découvrir nos spectacles</a>
         </div>
     </section>
 
@@ -505,7 +717,7 @@
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    <strong>S'mone</strong> est une compagnie d'improvisation théâtrale passionnée et créative.
+                    <strong>Simone Improvise</strong> est une compagnie d'improvisation théâtrale passionnée et créative.
                     Nous créons des spectacles uniques et spontanés qui transportent le public dans des univers
                     inattendus et hilarants.
                 </p>
@@ -514,35 +726,88 @@
                     de rire et d'émotion. Chaque représentation est unique car entièrement créée sur le moment,
                     avec votre participation !
                 </p>
+                <p style="margin-top: 1rem;">
+                    Que ce soit pour un match d'improvisation endiablé, un spectacle format libre ou des ateliers
+                    découverte, <strong>Simone Improvise</strong> vous garantit une expérience inoubliable !
+                </p>
             </div>
-            <img src="assets/images/IMG_20230524_120431_947.jpg" alt="Équipe S'mone" class="about-image">
+            <img src="assets/images/IMG_20230524_120431_947.jpg" alt="Équipe Simone Improvise" class="about-image">
         </div>
     </section>
 
-    <!-- SPECTACLES -->
-    <section id="spectacles">
+    <!-- ACTIVITES INTRO -->
+    <section id="activites">
+        <h2 class="section-title">Nos Activités</h2>
+        <div class="activites-grid">
+            <div class="activite-box">
+                <div class="activite-number">1.</div>
+                <div class="activite-title">Se retrouver</div>
+                <div class="activite-text">Un moment de partage et de convivialité entre passionnés d'improvisation</div>
+            </div>
+            <div class="activite-box">
+                <div class="activite-number">2.</div>
+                <div class="activite-title">S'amuser</div>
+                <div class="activite-text">Rire, créer et improviser dans une ambiance détendue et bienveillante</div>
+            </div>
+            <div class="activite-box">
+                <div class="activite-number">3.</div>
+                <div class="activite-title">Se perfectionner</div>
+                <div class="activite-text">Développer ses compétences et explorer de nouvelles techniques</div>
+            </div>
+        </div>
+        <div class="impro-highlight">
+            <h3>IMPRO !!</h3>
+        </div>
+    </section>
+
+    <!-- NOS ACTIVITES CARDS -->
+    <section id="nos-activites">
         <h2 class="section-title">Nos Spectacles</h2>
-        <div class="spectacles-grid">
-            <div class="spectacle-card">
-                <img src="assets/images/IMG_20241124-WA0177.jpg" alt="Spectacle improvisation">
-                <div class="spectacle-info">
-                    <h3>Match d'improvisation</h3>
-                    <p>Deux équipes s'affrontent dans un match sportif où l'imagination est reine. Le public est juge !</p>
+        <div class="activites-cards">
+            <div class="activite-card">
+                <img src="assets/images/IMG_20241124-WA0177.jpg" alt="Ateliers d'impro">
+                <div class="activite-info">
+                    <h3>Ateliers d'Impro</h3>
+                    <p>Participez à nos ateliers d'improvisation ! Que vous soyez débutant ou confirmé, venez découvrir 
+                    et pratiquer l'art de l'improvisation théâtrale dans une ambiance conviviale et créative.</p>
                 </div>
             </div>
-            <div class="spectacle-card">
-                <img src="assets/images/IMG_20250405-WA0016-300x22.jpg" alt="Spectacle théâtre">
-                <div class="spectacle-info">
-                    <h3>Format libre</h3>
-                    <p>Des histoires créées spontanément à partir de vos suggestions. Laissez-vous surprendre !</p>
+            <div class="activite-card">
+                <img src="assets/images/IMG_20250405-WA0016-300x22.jpg" alt="Spectacles Live">
+                <div class="activite-info">
+                    <h3>Spectacles Live</h3>
+                    <p>Venez assister à nos spectacles d'improvisation ! Des histoires uniques créées en direct 
+                    à partir de vos suggestions. Chaque représentation est une expérience unique et mémorable.</p>
                 </div>
             </div>
-            <div class="spectacle-card">
-                <img src="assets/images/IMG_20241215-WA0001.jpg" alt="Atelier improvisation">
-                <div class="spectacle-info">
-                    <h3>Ateliers découverte</h3>
-                    <p>Envie d'essayer ? Rejoignez nos ateliers pour découvrir l'improvisation dans une ambiance conviviale.</p>
+            <div class="activite-card">
+                <img src="assets/images/IMG_20241215-WA0001.jpg" alt="Événements Spéciaux">
+                <div class="activite-info">
+                    <h3>Événements Spéciaux</h3>
+                    <p>Participez à nos matchs d'improvisation et événements spéciaux ! Une soirée spectaculaire où 
+                    deux équipes s'affrontent dans des joutes improvisées. Le public est juge !</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALEURS -->
+    <section id="valeurs">
+        <h2 class="section-title">Nos Valeurs Essentielles</h2>
+        <div class="valeurs-content">
+            <img src="assets/images/IMG_20251007_082858_229.jpg" alt="Valeurs Simone Improvise" class="valeurs-image">
+            <div class="valeurs-text">
+                <h3>Notre Philosophie</h3>
+                <p>
+                    Chez Simone Improvise, nous croyons en la joie, la créme humaine, et la bienveillance. 
+                    Notre association est un espace où chacun peut s'exprimer sans jugement. Nous encourageons 
+                    la créativité et l'esprit d'équipe, tout en cultivant l'humour et l'écoute.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Que vous souhaitiez devenir comédien improvisateur ou simplement passer un bon moment, 
+                    vous êtes les bienvenus dans l'univers de l'improvisation !
+                </p>
+                <a href="#contact" class="btn-valeurs">Rejoignez-nous</a>
             </div>
         </div>
     </section>
@@ -560,7 +825,7 @@
             <div class="gallery-item">
                 <img src="assets/images/IMG_20230524_120431_947.jpg" alt="Photo équipe">
                 <div class="gallery-overlay">
-                    <p>L'équipe S'mone</p>
+                    <p>L'équipe Simone Improvise</p>
                 </div>
             </div>
             <div class="gallery-item">
@@ -594,6 +859,10 @@
     <section id="contact">
         <h2 class="section-title">Contactez-nous</h2>
         <div class="contact-container">
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+                Des questions ? Envie d'organiser un spectacle ? Contactez-nous et laissez-nous créer ensemble 
+                un événement inoubliable !
+            </p>
             <form class="contact-form" action="#" method="POST">
                 <div class="form-group">
                     <label for="name">Nom *</label>
@@ -611,7 +880,7 @@
                     <label for="message">Message *</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit" class="btn">Envoyer</button>
+                <button type="submit" class="btn" style="cursor: pointer;">Envoyer</button>
             </form>
         </div>
     </section>
@@ -620,15 +889,19 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <img src="assets/images/LogoSimone-1-150x151.png" alt="Logo S'mone" class="footer-logo">
-                <p>L'improvisation qui vous fait vibrer</p>
+                <div class="footer-logo-container">
+                    <img src="assets/images/logoSimoneBlancnc-c-1-150x150.jpg" alt="Logo Simone Improvise" class="footer-logo">
+                    <span class="footer-brand">Simone Improvise</span>
+                </div>
+                <p style="margin-top: 1rem;">L'improvisation qui vous fait vibrer</p>
             </div>
             <div class="footer-section">
                 <h3>Navigation</h3>
-                <p><a href="#accueil" style="color: white; text-decoration: none;">Accueil</a></p>
-                <p><a href="#apropos" style="color: white; text-decoration: none;">À propos</a></p>
-                <p><a href="#spectacles" style="color: white; text-decoration: none;">Spectacles</a></p>
-                <p><a href="#contact" style="color: white; text-decoration: none;">Contact</a></p>
+                <p><a href="#accueil">Accueil</a></p>
+                <p><a href="#apropos">À propos</a></p>
+                <p><a href="#activites">Activités</a></p>
+                <p><a href="#galerie">Galerie</a></p>
+                <p><a href="#contact">Contact</a></p>
             </div>
             <div class="footer-section">
                 <h3>Suivez-nous</h3>
@@ -637,9 +910,13 @@
                     <a href="#" aria-label="Instagram">📷</a>
                     <a href="#" aria-label="YouTube">📹</a>
                 </div>
+                <p style="margin-top: 1rem;">Rejoignez notre communauté !</p>
             </div>
         </div>
-        <p>&copy; 2026 S'mone - Tous droits réservés</p>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Simone Improvise - Tous droits réservés</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Association d'improvisation théâtrale</p>
+        </div>
     </footer>
 
     <!-- JAVASCRIPT -->
@@ -668,7 +945,7 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
-                        top: target.offsetTop - 80,
+                        top: target.offsetTop - 70,
                         behavior: 'smooth'
                     });
                 }
@@ -689,7 +966,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.gallery-item, .spectacle-card').forEach(item => {
+        document.querySelectorAll('.gallery-item, .activite-card, .activite-box').forEach(item => {
             observer.observe(item);
         });
     </script>
