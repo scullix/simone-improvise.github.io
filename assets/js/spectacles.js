@@ -234,8 +234,10 @@ class GestionSpectacles {
                 Réserver
             </a>`;
         }
-        
-        return '<button class="spectacle-btn">Plus d\'infos</button>';
+        return `<a href="${spectacle.lienPlusInfo}" class="spectacle-btn" target="_blank">
+            Plus d\'infos
+        </a>`;
+        /* return '<button class="spectacle-btn">Plus d\'infos</button>'; */
     }
 
     /**
