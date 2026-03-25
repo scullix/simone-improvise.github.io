@@ -1,38 +1,57 @@
-/* ============================================================
-   SIMONE IMPROVISE — main.js
-   Gestion du menu mobile (overlay)
-============================================================ */
+// ========================================
+// SIMONE IMPROVISE - JAVASCRIPT PRINCIPAL
+// ========================================
 
-(function () {
-  const overlay = document.getElementById('navOverlay');
-  if (!overlay) return;
+// Menu burger responsive
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
 
-  // Ouvre / ferme l'overlay
-  function toggleNav() {
-    overlay.classList.toggle('open');
-    document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
-  }
+if (burger) {
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        burger.classList.toggle('active');
+    });
+}
 
-  // Bouton burger
-  const burgerBtn = document.querySelector('.burger');
-  if (burgerBtn) burgerBtn.addEventListener('click', toggleNav);
+// Fermer le menu au clic sur un lien
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            burger.classList.remove('active');
+        }
+    });
+});
 
-  // Bouton fermer dans l'overlay
-  const closeBtn = overlay.querySelector('.close-nav');
-  if (closeBtn) closeBtn.addEventListener('click', toggleNav);
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 
-  // Fermer en cliquant sur un lien du menu
-  overlay.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', toggleNav);
-  });
+// Animation au scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
 
-  // Fermer en cliquant en dehors (sur le fond)
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) toggleNav();
-  });
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+        }
+    });
+}, observerOptions);
 
-  // Fermer avec Escape
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) toggleNav();
-  });
-})();
+// Observer tous les éléments animables
+document.querySelectorAll('.gallery-item, .activite-card, .activite-box').forEach(item => {
+    observer.observe(item);
+});
