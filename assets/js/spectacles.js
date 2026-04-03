@@ -23,7 +23,19 @@ class GestionSpectacles {
             const response = await fetch('spectacles/config.json');
             const data = await response.json();
             this.spectacles = data.spectacles || [];
-            
+
+            // ✨ Calcul automatique du statut basé sur la date
+            const aujourdhui = new Date();
+            aujourdhui.setHours(0, 0, 0, 0);
+
+            this.spectacles.forEach(spectacle => {
+                if (spectacle.statut !== 'complet') { // Ne pas écraser "complet"
+                    const dateSpectacle = new Date(spectacle.date);
+                    dateSpectacle.setHours(0, 0, 0, 0);
+                    spectacle.statut = dateSpectacle < aujourdhui ? 'passe' : 'a-venir';
+                }
+            });    
+                 
             // Trier par date (les plus récents en premier)
             this.spectacles.sort((a, b) => new Date(b.date) - new Date(a.date));
         } catch (error) {
@@ -42,32 +54,6 @@ class GestionSpectacles {
                     statut: 'a-venir',
                     affiche: 'assets/images/IMG_20250405-WA0016-300x22.jpg',
                     photos: ['assets/images/IMG_20250405-WA0016-300x22.jpg']
-                },
-                {
-                    id: 'exemple-atelier',
-                    type: 'atelier',
-                    titre: 'Ateliers d\'Impro',
-                    date: '2026-05-01',
-                    heure: '18h00',
-                    lieu: 'Local de l\'association',
-                    description: 'Participez à nos ateliers d\'improvisation ! Que vous soyez débutant ou confirmé, venez découvrir l\'art de l\'improvisation.',
-                    prix: 'Gratuit',
-                    statut: 'a-venir',
-                    affiche: 'assets/images/IMG_20241124-WA0177.jpg',
-                    photos: []
-                },
-                {
-                    id: 'exemple-match',
-                    type: 'match',
-                    titre: 'Match d\'Improvisation',
-                    date: '2026-06-01',
-                    heure: '20h30',
-                    lieu: 'Salle des fêtes',
-                    description: 'Participez à nos matchs d\'improvisation ! Une soirée spectaculaire où deux équipes s\'affrontent.',
-                    prix: '8€',
-                    statut: 'a-venir',
-                    affiche: 'assets/images/IMG_20241215-WA0001.jpg',
-                    photos: ['assets/images/IMG_20241215-WA0001.jpg']
                 }
             ];
         }
