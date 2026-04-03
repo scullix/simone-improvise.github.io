@@ -1,6 +1,26 @@
 {
   "spectacles": [
     {
+      "id": "spectacle-impro-20260411",
+      "type": "spectacle",
+      "titre": "Spectacle d'Improvisation : Simone décolle !",
+      "date": "2026-04-11",
+      "heure": "20h",
+      "lieu": "SAJH APEDI 7a rue Jean Monnet à Schiltigheim ",
+      "description": "✈️ Bienvenue à bord de Simone Airlines.\n
+Pour son prochain spectacle, Simone et son cabin-crew t'embarquent pour un moment de folie.\n
+Rien de plus à faire que de prendre place et profiter du voyage improvisé par cette fine équipe.\n
+Relevez vos tablettes et attachez vos ceintures, fort risque de turbulences en tout genre !\n
+Alors, prêt.e pour le décollage ?!",
+      "prix": "Entrée libre dans la limite des places disponibles ",
+      "statut": "a-venir",
+      "affiche": "spectacles/20260411/affiche.jpg",
+      "photos": [
+        "spectacles/20260411/affiche.jpg"
+      ],
+      "lienPlusInfo": "https://www.facebook.com/events/1726151495229840/"
+    },
+    {
       "id": "spectacle-impro-20260328",
       "type": "spectacle",
       "titre": "Spectacle d'Improvisation - Printemps 2026",
