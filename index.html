@@ -8,6 +8,9 @@
     <meta property="og:title" content="Simone Improvise - Improvisation Théâtrale">
     <meta property="og:description" content="Compagnie d'improvisation théâtrale">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://simone-improvise.fr/assets/images/logo-simone-blanc.png">
+    <meta property="og:url" content="https://simone-improvise.fr">
+    <meta property="og:site_name" content="Simone Improvise">
     <title>Simone Improvise - Improvisation Théâtrale</title>
 
     <link rel="icon" type="image/png" href="assets/images/favicon.jpg">
@@ -44,6 +47,14 @@
                 <li><a href="#galerie">Galerie</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <!--
+            <div>
+                <div class="social-links-header">
+                    <a href="https://www.facebook.com/simoneimprovise/?locale=fr_FR" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/simoneimprovise/?hl=fr" aria-label="Facebook"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>  
+            -->          
             <div class="burger">
                 <div></div>
                 <div></div>
@@ -74,17 +85,30 @@
                 <p style="margin-top: 1rem;">
                     L'objectif de nos ateliers est de libérer la créativité et l'originalité de chacun dans un cadre bienveillant, 
                     en travaillant la création de personnage, le mime, le lâcher prise et l'écoute de l'autre.
-                    La philosophie de la compagnie : "être bien dans ses baskets !".
+                    <!--La philosophie de la compagnie : "être bien dans ses baskets !".-->
                 </p>
                 <p style="margin-top: 1rem;">
                     Durant nos spectacles, nos comédiens, formés aux techniques d'improvisation, vous proposent des moments de partage,
                     de rire et d'émotion. Chaque représentation est unique car entièrement créée sur le moment,
-                    <strong>avec votre participation !</strong>
+                    avec votre participation !
                 </p>
-                <div class="btn-container">
-                    <a href="#ateliers-horaires" class="btn">Découvrir nos ateliers</a>
+
+            <div>
+                <p style="display: flex; gap: 1rem; justify-content: center;  margin-top: 1cap;">
+                    <strong>Suivez-nous !</strong>
+                </p>
+                <div class="social-links-header">
+                    <a href="https://www.facebook.com/simoneimprovise/?locale=fr_FR" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/simoneimprovise/?hl=fr" aria-label="Facebook"><i class="fab fa-instagram"></i></a>
                 </div>
-                
+            </div>
+            <!--
+            </div>   
+                <div class="btn-container">
+                    <a href="#ateliers-horaires" class="btn">
+                        Découvrir nos ateliers</a>
+                </div>
+            </div>-->
             </div>
             <img src="assets/images/IMG_20230524_120431_947.jpg" alt="Équipe Simone Improvise" class="about-image">
         </div>
@@ -255,15 +279,20 @@
             </div>
             
             <div class="form-group">
-                <label for="phone">Téléphone</label>
+                <label for="phone">Téléphone *</label>
                 <input type="tel" id="phone" name="phone">
             </div>
             
             <div class="form-group">
-                <label for="message">Message *</label>
+                <label for="message">Message </label>
                 <textarea id="message" name="message" rows="5" required></textarea>
             </div>
-            
+            <div class="form-group">
+            <label>
+                <input type="checkbox" name="rgpd_consent" required>
+                J'accepte que mes données soient utilisées pour me recontacter *
+            </label>
+            </div>
             <button type="submit" id="submit-btn">Envoyer</button>
             <div id="form-status"></div>
         </form>
@@ -300,7 +329,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy;2026 simoneimprovise@gmail.com</p>
-            <!-- <p style="margin-top: 0.5rem; font-size: 0.9rem;">Ateliers et Spectacles d'improvisation théatrale Schilickoise</p> -->
+            <p><a href="mentions-legales.html">Mentions légales & RGPD</a></p>
         </div>
     </footer>
 
