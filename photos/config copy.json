@@ -1,9 +1,9 @@
 {
   "albums": [
     {
-      "id": "Les coulisses de Simone",
-      "titre": "Les coulisses de Simone",
-      "description": "Entrainements et préparation des spectacles",
+      "id": "nos-entrainements",
+      "titre": "Nos entrainements",
+      "description": "Entrainements des équipes adultes et ado",
       "date": "2026-03-15",
       "thumbnail": "photos/nos-entrainements/thumbnail.jpg",
       "dossier": "photos/nos-entrainements/",
@@ -11,11 +11,7 @@
         "photos/nos-entrainements/photo01.jpg",
         "photos/nos-entrainements/photo02.jpg",
         "photos/nos-entrainements/photo03.jpg",
-        "photos/nos-entrainements/photo04.jpg",
-        "photos/nos-entrainements/photo05.jpg",
-        "photos/nos-entrainements/photo06.jpg",
-        "photos/nos-entrainements/photo07.jpg",
-        "photos/nos-entrainements/photo08.jpg"
+        "photos/nos-entrainements/photo04.jpg"
       ]
     },
     {
@@ -30,11 +26,7 @@
         "photos/spectacles-en-vrac/photo02.jpg",
         "photos/spectacles-en-vrac/photo03.jpg",
         "photos/spectacles-en-vrac/photo04.jpg",
-        "photos/spectacles-en-vrac/photo05.jpg",
-        "photos/spectacles-en-vrac/photo06.jpg",
-        "photos/spectacles-en-vrac/photo07.jpg",
-        "photos/spectacles-en-vrac/photo08.jpg",
-        "photos/spectacles-en-vrac/photo09.jpg"
+        "photos/spectacles-en-vrac/photo05.jpg"
       ]
     }
   ]
